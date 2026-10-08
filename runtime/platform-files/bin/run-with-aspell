@@ -1,0 +1,4 @@
+#!/bin/sh
+PATH=/usr/lib/x86_64-linux-gnu/aspell-0.60:$PATH
+export PATH
+exec $@

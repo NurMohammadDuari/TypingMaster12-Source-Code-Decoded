@@ -1,0 +1,96 @@
+{
+  "id" : "com.typingmaster.TypingMaster",
+  "runtime" : "org.freedesktop.Platform",
+  "runtime-version" : "26.08",
+  "runtime-commit" : "92659297ffdb4f9f14dd1562bd919b48160b0dc42c99653dcfc0688096af41df",
+  "sdk" : "org.freedesktop.Sdk",
+  "sdk-commit" : "b2da32d6f352e92514b58f9c57076dbd1a28b94d0d87c13d030f74fbba7aa9e1",
+  "base" : "org.winehq.Wine",
+  "base-version" : "stable-26.08",
+  "base-commit" : "7afee403618662dfbbcb47261a61d51ad4ac505b5b407f98430e07c2fd40ceb8",
+  "command" : "typingmaster",
+  "modules" : [
+    {
+      "name" : "selawik",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "url" : "https://github.com/microsoft/Selawik/releases/download/1.01/Selawik_Release.zip",
+          "sha256" : "3f62c51e05e3b5a1e6241cf92a371f0be2ea1183aa87b30718bbd40832a8d423",
+          "strip-components" : 0,
+          "type" : "archive"
+        },
+        {
+          "url" : "https://raw.githubusercontent.com/microsoft/Selawik/1.01/LICENSE.txt",
+          "sha256" : "77b7c2506d4efb22e09c8ccf10159f4956eab3ef7c007fef95de136bcf45300c",
+          "type" : "file"
+        }
+      ],
+      "build-commands" : [
+        "install -Dm644 -t /app/share/fonts/selawik selawk*.ttf",
+        "install -Dm644 LICENSE.txt /app/share/licenses/com.typingmaster.TypingMaster/selawik/LICENSE.txt"
+      ]
+    },
+    {
+      "name" : "typingmaster",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "dest" : "program",
+          "path" : "input/program",
+          "type" : "dir"
+        },
+        {
+          "dest" : "icons",
+          "path" : "input/icons",
+          "type" : "dir"
+        },
+        {
+          "path" : "files/typingmaster.sh",
+          "type" : "file"
+        },
+        {
+          "path" : "files/wine-settings.reg",
+          "type" : "file"
+        },
+        {
+          "path" : "files/screen-size.py",
+          "type" : "file"
+        },
+        {
+          "path" : "files/com.typingmaster.TypingMaster.desktop",
+          "type" : "file"
+        },
+        {
+          "path" : "files/com.typingmaster.TypingMaster.metainfo.xml",
+          "type" : "file"
+        }
+      ],
+      "build-commands" : [
+        "mkdir -p /app/typingmaster",
+        "cp -R program/. /app/typingmaster/",
+        "chmod -R u=rwX,go=rX /app/typingmaster",
+        "install -Dm755 typingmaster.sh /app/bin/typingmaster",
+        "install -Dm644 wine-settings.reg /app/share/typingmaster/wine-settings.reg",
+        "install -Dm644 screen-size.py /app/share/typingmaster/screen-size.py",
+        "install -Dm644 com.typingmaster.TypingMaster.desktop -t /app/share/applications",
+        "install -Dm644 com.typingmaster.TypingMaster.metainfo.xml -t /app/share/metainfo",
+        "for png in icons/*.png; do\n  size=$(basename \"$png\" .png)\n  install -Dm644 \"$png\" \"/app/share/icons/hicolor/${size}x${size}/apps/com.typingmaster.TypingMaster.png\"\ndone\n"
+      ]
+    }
+  ],
+  "finish-args" : [
+    "--socket=x11",
+    "--share=ipc",
+    "--socket=pulseaudio",
+    "--share=network",
+    "--socket=cups",
+    "--filesystem=xdg-desktop",
+    "--filesystem=xdg-documents",
+    "--filesystem=xdg-download",
+    "--allow=multiarch",
+    "--allow=devel",
+    "--env=WINEDLLOVERRIDES=winemenubuilder.exe=d;mscoree=d"
+  ],
+  "source-date-epoch" : 1790769500
+}
