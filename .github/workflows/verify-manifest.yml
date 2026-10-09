@@ -31,7 +31,7 @@ jobs:
 
     steps:
       - name: Checkout (sparse - manifest-covered paths only)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           lfs: false
           sparse-checkout: |
