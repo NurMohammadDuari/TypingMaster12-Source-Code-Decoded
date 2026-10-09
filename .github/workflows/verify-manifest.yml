@@ -1,0 +1,53 @@
+name: Verify integrity
+
+# Checks that the tracked original files still match MANIFEST.txt.
+# MANIFEST.txt covers app/, resources/, analysis/, unpacked/ and native-re/
+# (4,240 files). runtime/ and prefix/ are intentionally excluded.
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  manifest:
+    name: md5sum -c MANIFEST.txt
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: false
+
+      - name: Verify manifest
+        run: |
+          set -euo pipefail
+          echo "Verifying $(wc -l < MANIFEST.txt) entries..."
+          if md5sum -c MANIFEST.txt > /tmp/manifest.out 2>&1; then
+            echo "::notice title=Integrity::All MANIFEST.txt entries verified OK"
+          else
+            echo "::error title=Integrity::MANIFEST.txt verification FAILED"
+            grep -v ': OK$' /tmp/manifest.out | head -50
+            exit 1
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          total=$(wc -l < MANIFEST.txt)
+          bad=$(grep -cv ': OK$' /tmp/manifest.out || true)
+          {
+            echo "### Integrity check"
+            echo ""
+            echo "| Metric | Value |"
+            echo "|---|---|"
+            echo "| Entries in manifest | ${total} |"
+            echo "| Mismatches | ${bad} |"
+          } >> "$GITHUB_STEP_SUMMARY"

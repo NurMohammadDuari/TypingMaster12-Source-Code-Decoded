@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you reference this reverse-engineering study, please cite it as below."
+title: "TypingMaster 12.0.1.981 — Reversed Source Tree"
+abstract: >-
+  A complete, runnable copy of the TypingMaster 12.0.1.981 program tree
+  (Windows/Delphi VCL, run under Wine), together with the reverse-engineering
+  artifacts used to study it: a live-memory dump of the decrypted image, a
+  Ghidra decompilation (13,137 functions), extracted PE resources, RTTI-derived
+  class and event-handler maps, and full documentation. Licensing logic is
+  documented structurally only; no bypass is provided.
+type: software
+authors:
+  - family-names: "Duari"
+    given-names: "Nur Mohammad"
+    alias: "NurMohammadDuari"
+    website: "https://github.com/NurMohammadDuari"
+repository-code: "https://github.com/NurMohammadDuari/TypingMaster-Source"
+url: "https://github.com/NurMohammadDuari/TypingMaster-Source"
+license: "LicenseRef-Proprietary"
+license-url: "https://github.com/NurMohammadDuari/TypingMaster-Source/blob/main/LICENSE"
+version: "1.0.0"
+date-released: "2026-10-09"
+keywords:
+  - reverse-engineering
+  - typingmaster
+  - delphi
+  - vcl
+  - wine
+  - packer
+  - ghidra
+  - pe32
+  - unpacking

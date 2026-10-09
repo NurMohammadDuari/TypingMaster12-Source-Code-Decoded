@@ -38,6 +38,21 @@ Documentation:
 | `DOCUMENTATION.md` | Full write-up: what it is, how it was examined, how it works, legal boundary |
 | `analysis/ANALYSIS-DEEP.md` | Detailed technical analysis of the decompiled code, data formats and screens |
 | `README.md` | This file |
+| `CHANGELOG.md` | Version history |
+| `CITATION.cff` | Citation metadata |
+
+Repository policy and metadata:
+
+| File | Purpose |
+|---|---|
+| `LICENSE` | All Rights Reserved + third-party component notes |
+| `NOTICE.md` | Upstream attribution (TypingMaster, Wine, Freedesktop runtime) |
+| `CONTRIBUTING.md` | Contribution rules — including the ban on licence-bypass changes |
+| `CODE_OF_CONDUCT.md` | Contributor Covenant v2.1 |
+| `SECURITY.md` | How to report a problem privately |
+| `.github/` | Issue templates, PR template, `CODEOWNERS`, manifest-verification workflow |
+| `.gitattributes` | Line-ending protection + Linguist settings |
+| `.gitignore` | Keeps transient Wine/runtime junk out |
 
 ---
 

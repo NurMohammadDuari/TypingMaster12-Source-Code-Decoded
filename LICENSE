@@ -1,0 +1,35 @@
+# License
+
+## This repository: All Rights Reserved
+
+Copyright © 2026 Nur Mohammad Duari.
+
+This repository is a **private, non-distributable** collection of
+reverse-engineering artifacts, analysis notes and documentation. No license —
+express or implied — is granted to any party to copy, modify, distribute,
+sublicense, sell, or otherwise use this repository or its contents.
+
+The repository is kept private for personal study and verification only.
+
+## Third-party and proprietary components
+
+This tree bundles and/or analyses material that is **not** the author's work
+and remains the property of its respective rights holders. In particular:
+
+| Component | Location in this repo | Rights holder |
+|---|---|---|
+| TypingMaster 12.0.1.981 (program, lessons, sounds, images, manuals, wordlists) | `app/`, `prefix/` | Cloud Kayak Labs / its successors — commercial, proprietary |
+| Decrypted memory image and Ghidra decompilation derived from the above | `unpacked/`, `native-re/` | derived work of the above |
+| Extracted PE resources (screens, cursors, bitmaps, style) | `resources/` | derived work of the above |
+| Wine engine and libraries | `runtime/app-files/` | Wine project — LGPL-2.1-or-later |
+| Freedesktop / Flatpak platform runtime and libraries | `runtime/platform-files/` | respective upstream projects (LGPL, MIT, BSD, GPL, …) |
+
+The licenses of the third-party runtime components remain in full force; their
+original license texts ship alongside them inside `runtime/`. Nothing in this
+repository re-licenses those components.
+
+Because this repository contains proprietary third-party software, it must not
+be made public, redistributed, sold, or used to circumvent licensing.
+
+See `NOTICE.md` for upstream attribution and `DOCUMENTATION.md` §7 for the
+project's stated legal boundary.

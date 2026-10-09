@@ -28,7 +28,6 @@
 *.so.*   binary
 *.dat    binary
 *.mgc    binary
-*.msi    binary
 *.pack   binary
 *.idx    binary
 *.pdb    binary
@@ -44,3 +43,20 @@
 
 # Scripts must keep LF and their executable bit.
 *.sh     text eol=lf
+
+# ── GitHub Linguist: keep language stats honest ───────────────
+# Do not count vendored runtimes as project code.
+runtime/**            linguist-vendored
+prefix/**             linguist-vendored
+unpacked/**           linguist-generated
+native-re/decompiled_typingmaster.c linguist-generated
+
+*.md                  linguist-documentation
+*.kbd                 linguist-language=Text
+*.exi                 linguist-language=Text
+*.exm                 linguist-language=Text
+*.cnt                 linguist-language=Text
+*.wzd                 linguist-language=Text
+*.hdr                 linguist-language=Text
+*.c                   linguist-language=C
+
