@@ -34,7 +34,7 @@ jobs:
             !prefix
           sparse-checkout-cone-mode: false
       - name: Run markdownlint-cli2
-        uses: DavidAnson/markdownlint-cli2-action@v16
+        uses: DavidAnson/markdownlint-cli2-action@v24
         with:
           globs: |
             *.md
