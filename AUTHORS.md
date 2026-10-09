@@ -12,8 +12,9 @@
 |---|---|---|---|
 | Nur Mohammad Duari | [@NurMohammadDuari](https://github.com/NurMohammadDuari) | Author, maintainer | via GitHub |
 
-This repository does not accept external contributions by default; see
-`CONTRIBUTING.md`.
+Community contributors are welcome — see `CONTRIBUTING.md`. Significant or
+recurring contributors are added to this file on request and credited in
+release notes.
 
 ## Third-party works
 

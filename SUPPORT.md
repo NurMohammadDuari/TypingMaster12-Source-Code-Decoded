@@ -11,6 +11,8 @@ best-effort by the sole maintainer.
 | Understand what this is | Read `README.md`, then `DOCUMENTATION.md` |
 | Understand the analysis | Read `analysis/ANALYSIS-DEEP.md` |
 | Understand the legal position | Read `LICENSE` and `NOTICE.md` |
+| **Contribute** | Read `CONTRIBUTING.md`, then `docs/COMMUNITY.md` |
+| Ask a question or share results | Open a [Discussion](https://github.com/NurMohammadDuari/TypingMaster-Source/discussions) |
 | Report a bug | Open an issue using the *Bug report* template |
 | Correct the analysis | Open an issue using the *Analysis correction* template |
 | Report a security problem | **Privately** — see `SECURITY.md` |

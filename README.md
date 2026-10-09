@@ -148,6 +148,18 @@ so it served for manual browsing only.
 
 ---
 
+## Contributing
+
+**Community help is welcome** — reports, analysis corrections, cross-distro
+testing, documentation, translations and tooling.
+
+- Start with [`CONTRIBUTING.md`](CONTRIBUTING.md) — it lists every way to help.
+- See [`docs/COMMUNITY.md`](docs/COMMUNITY.md) for the most-needed tasks.
+- Good starting points are issues labelled **`good first issue`** and
+  **`help wanted`**.
+- Questions and results go in
+  [Discussions](https://github.com/NurMohammadDuari/TypingMaster-Source/discussions).
+
 ## Legal
 
 The program, its lessons, sounds, images and the decoded listing are the

@@ -10,6 +10,8 @@ All human-readable documentation for this repository, in reading order.
 | 4 | [ROADMAP.md](ROADMAP.md) | What is planned and what is explicitly out of scope |
 | 5 | [CHANGELOG.md](CHANGELOG.md) | Version history |
 | 6 | [SUPPORT.md](SUPPORT.md) | How to get help, and what is not supported |
+| 7 | [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute — every way to help |
+| 8 | [docs/COMMUNITY.md](docs/COMMUNITY.md) | Community channels and the most-needed tasks |
 
 Reference material:
 
