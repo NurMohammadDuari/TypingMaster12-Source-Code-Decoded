@@ -2,11 +2,20 @@ name: Verify integrity
 
 # Checks that the tracked original files still match MANIFEST.txt.
 # MANIFEST.txt covers app/, resources/, analysis/, unpacked/ and native-re/
-# (4,240 files). runtime/ and prefix/ are intentionally excluded.
+# (4,240 files, ~45 MB). runtime/ and prefix/ (~1.8 GB) are intentionally
+# excluded, so we use a sparse checkout to avoid downloading them.
 
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'MANIFEST.txt'
+      - 'app/**'
+      - 'resources/**'
+      - 'analysis/**'
+      - 'unpacked/**'
+      - 'native-re/**'
+      - '.github/workflows/verify-manifest.yml'
   pull_request:
     branches: [ main ]
   workflow_dispatch:
@@ -21,10 +30,18 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - name: Checkout
+      - name: Checkout (sparse - manifest-covered paths only)
         uses: actions/checkout@v4
         with:
           lfs: false
+          sparse-checkout: |
+            MANIFEST.txt
+            app
+            resources
+            analysis
+            unpacked
+            native-re
+          sparse-checkout-cone-mode: false
 
       - name: Verify manifest
         run: |
